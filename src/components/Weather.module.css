@@ -1,0 +1,16 @@
+.weather {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  overflow: auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+.weather li {
+  border-radius: 10px;
+}
+
+.weather li:first-child {
+  background-color: #9cc9a7;
+}
