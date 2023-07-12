@@ -20,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .app {
@@ -33,7 +34,7 @@ body {
 
 h1 {
   font-weight: 400;
-  font-size: 6rem;
+  font-size: 4rem;
   letter-spacing: 2px;
   word-spacing: 5px;
 }
