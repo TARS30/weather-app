@@ -1,6 +1,7 @@
+import React, { useEffect, useState } from "react";
+
 import Input from "./components/Input";
 import Weather from "./components/Weather";
-import React, { useEffect, useState } from "react";
 
 function convertToFlag(countryCode) {
   const codePoints = countryCode
@@ -11,10 +12,11 @@ function convertToFlag(countryCode) {
 }
 
 const App = () => {
+  const [weather, setWeather] = useState({});
   const [location, setLocation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [displayLocation, setDisplayLocation] = useState("");
-  const [weather, setWeather] = useState({});
+
   const locationUpper = location.toLocaleUpperCase();
 
   if (location.length >= 3) {
@@ -30,7 +32,6 @@ const App = () => {
       try {
         setIsLoading(true);
 
-        // 1) Getting location (geocoding)
         const geoRes = await fetch(
           `https://geocoding-api.open-meteo.com/v1/search?name=${location}`
         );
@@ -43,7 +44,6 @@ const App = () => {
 
         setDisplayLocation(`${name} ${convertToFlag(country_code)}`);
 
-        // 2) Getting actual weather
         const weatherRes = await fetch(
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min`
         );
@@ -61,7 +61,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1 className="title">Functional Weather Forecast</h1>
+      <h1 className="title">Weather Forecast</h1>
       <Input location={location} onSetLocation={setLocation} />
       {isLoading && <p className="loader">Loading...</p>}
       {weather.weathercode && (

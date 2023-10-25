@@ -6,10 +6,9 @@ const Input = (props) => {
     <div>
       <input
         type="text"
-        placeholder="Search from location..."
         value={props.location}
-        // onChange={props.onChangeLocation}
         onChange={inputChangeHandler}
+        placeholder="Search from location..."
       />
     </div>
   );

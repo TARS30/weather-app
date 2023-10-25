@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600;700&family=Roboto:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -11,66 +10,67 @@ html {
 }
 
 body {
-  /* font-family: "Cinzel Decorative", cursive; */
-  font-family: monospace;
-  font-size: 2rem;
-  /* height: 100vh; */
+
   color: #222;
-  background-color: #686868;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  background-color: #ccc;
+  transition: all 0.3s ease 0s;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* width: 112rem; */
   gap: 4rem;
   padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
-  font-weight: 400;
-  font-size: 4rem;
+  font-size: 30px;
+  font-weight: 300;
   letter-spacing: 2px;
-  word-spacing: 5px;
 }
 
 h2 {
+  font-weight: 300;
   text-align: center;
   margin-bottom: 2.4rem;
 }
 
 input {
-  font-family: inherit;
-  color: inherit;
-  font-size: 2rem;
-  background-color: #7f9482;
-  padding: 1.6rem 3.2rem;
   border: none;
-  /* width: 32rem; */
-  border-radius: 10px;
+  color: inherit;
+  font-size: 20px;
   text-align: center;
-  text-transform: uppercase;
+  border-radius: 10px;
+  font-family: inherit;
+  padding: 1.6rem 3.2rem;
+  text-transform: capitalize;
+  background-color: #949c96;
+  transition: all 0.2s ease 0s;
 }
 
 input:focus {
+  scale: 1.2;
+  background-color: #a0b9a3;
   outline: 2px solid #ffffff;
+  transition: all 0.2s ease 0s;
 }
 
 .day {
-  background-color: #ffffff;
-  padding: 1.6rem 2rem;
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
   gap: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
   cursor: pointer;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  flex-direction: column;
+  background-color: #ffffff;
 }
 
 .day span {
@@ -78,12 +78,13 @@ input:focus {
 }
 
 .loader {
-  font-size: 2.4rem;
   font-weight: 700;
+  font-size: 2.4rem;
 }
 .title {
-  text-align: center;
   padding: 20px;
+  font-size: 25px;
+  text-align: center;
 }
 .title span {
   text-decoration: line-through;
