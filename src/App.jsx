@@ -10,6 +10,7 @@ import sunnyImage from "./img/sunny.jpg";
 import windyImage from "./img/windy.jpg";
 import thunderImage from "./img/thunder.jpg";
 import heavyRainImage from "./img/heavy-rain.jpg";
+import stockImage from "./img/stock.jpg";
 
 function convertToFlag(countryCode) {
   const codePoints = countryCode
@@ -23,7 +24,7 @@ const App = () => {
   const [weather, setWeather] = useState({});
   const [location, setLocation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [wallpaper, setWallpaper] = useState("");
+  const [wallpaper, setWallpaper] = useState(stockImage);
   const [displayLocation, setDisplayLocation] = useState("");
 
   const locationUpper = location.toLocaleUpperCase();
