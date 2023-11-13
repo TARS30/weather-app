@@ -1,3 +1,25 @@
+import styled from "styled-components";
+
+const StyledDay = styled.li`
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  flex-direction: column;
+  background-color: #ffffff3b;
+  transition: all 0.3s ease 0s;
+  & span {
+    font-size: 5.2rem;
+  }
+  &:hover {
+    scale: 1.1; 
+    color: #ffffff;
+    background-color: #64646444;
+  }
+`;
+
 function getWeatherIcon(wmoCode) {
   const icons = new Map([
     [[0], "☀️"],
@@ -27,13 +49,13 @@ const Day = (props) => {
   const { date, max, min, code, isToday } = props;
 
   return (
-    <li className="day">
+    <StyledDay>
       <span>{getWeatherIcon(code)}</span>
       <p>{isToday ? "Today" : formatDay(date)}</p>
       <p>
         {Math.floor(min)}&deg; &mdash; <strong>{Math.ceil(max)}&deg;</strong>
       </p>
-    </li>
+    </StyledDay>
   );
 };
 export default Day;

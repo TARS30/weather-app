@@ -10,7 +10,6 @@ html {
 }
 
 body {
-
   color: #222;
   font-size: 2rem;
   display: flex;
@@ -40,41 +39,6 @@ h2 {
   font-weight: 300;
   text-align: center;
   margin-bottom: 2.4rem;
-}
-
-input {
-  border: none;
-  color: inherit;
-  font-size: 20px;
-  text-align: center;
-  border-radius: 10px;
-  font-family: inherit;
-  padding: 1.6rem 3.2rem;
-  text-transform: capitalize;
-  background-color: #949c96;
-  transition: all 0.2s ease 0s;
-}
-
-input:focus {
-  scale: 1.2;
-  background-color: #a0b9a3;
-  outline: 2px solid #ffffff;
-  transition: all 0.2s ease 0s;
-}
-
-.day {
-  gap: 1.2rem;
-  display: flex;
-  flex-wrap: wrap;
-  cursor: pointer;
-  align-items: center;
-  padding: 1.6rem 2rem;
-  flex-direction: column;
-  background-color: #ffffff;
-}
-
-.day span {
-  font-size: 5.2rem;
 }
 
 .loader {

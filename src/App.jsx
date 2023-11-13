@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 
+import Main from "./components/Main";
 import Input from "./components/Input";
 import Weather from "./components/Weather";
+
+import rainyImage from "./img/rainy-day.jpg";
+import cloudyImage from "./img/cloudy.jpg";
+import sunnyImage from "./img/sunny.jpg";
+import windyImage from "./img/windy.jpg";
+import thunderImage from "./img/thunder.jpg";
+import heavyRainImage from "./img/heavy-rain.jpg";
 
 function convertToFlag(countryCode) {
   const codePoints = countryCode
@@ -15,6 +23,7 @@ const App = () => {
   const [weather, setWeather] = useState({});
   const [location, setLocation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [wallpaper, setWallpaper] = useState("");
   const [displayLocation, setDisplayLocation] = useState("");
 
   const locationUpper = location.toLocaleUpperCase();
@@ -29,6 +38,7 @@ const App = () => {
       if (location.length < 3) {
         return;
       }
+
       try {
         setIsLoading(true);
 
@@ -49,25 +59,61 @@ const App = () => {
         );
         const weatherData = await weatherRes.json();
 
+          console.log(weatherData)
+
         setWeather(weatherData.daily);
+
+        const todaysWeatherCode = weatherData.daily.weathercode[0];
+
+        switch (todaysWeatherCode) {
+          case 80 || 51 || 56 || 61 || 66:
+            setWallpaper(rainyImage);
+            break;
+          case 3:
+            setWallpaper(cloudyImage);
+            break;
+          case 0:
+            setWallpaper(sunnyImage);
+            break;
+          case 45 || 48:
+            setWallpaper(windyImage);
+            break;
+          case 51 || 56 || 61 || 66 || 80:
+            setWallpaper(rainyImage);
+            break;
+          case 53 || 55 || 63 || 65 || 57 || 67 || 81 || 82:
+            setWallpaper(windyImage);
+            break;
+          case 71 || 73 || 75 || 77 || 85 || 86:
+            setWallpaper(heavyRainImage);
+            break;
+          case 75:
+            setWallpaper(thunderImage);
+            break;
+          case 96 || 99:
+            setWallpaper(thunderImage);
+            break;
+          default:
+        }
       } catch (err) {
         console.error(err);
       } finally {
         setIsLoading(false);
       }
     };
+
     fetchWeather();
   }, [location]);
 
   return (
-    <div className="app">
+    <Main wallpaper={wallpaper}>
       <h1 className="title">Weather Forecast</h1>
       <Input location={location} onSetLocation={setLocation} />
       {isLoading && <p className="loader">Loading...</p>}
       {weather.weathercode && (
         <Weather weather={weather} location={displayLocation} />
       )}
-    </div>
+    </Main>
   );
 };
 

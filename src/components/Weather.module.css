@@ -12,5 +12,9 @@
 }
 
 .weather li:first-child {
-  background-color: #595e5a;
+  background-color: #595e5aa9;
 }
+.title {
+ margin-bottom: 1rem; 
+}
+
