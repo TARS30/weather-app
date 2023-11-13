@@ -59,7 +59,6 @@ const App = () => {
         );
         const weatherData = await weatherRes.json();
 
-          console.log(weatherData)
 
         setWeather(weatherData.daily);
 
@@ -101,8 +100,10 @@ const App = () => {
         setIsLoading(false);
       }
     };
-
-    fetchWeather();
+    const timer = setTimeout(() => {
+      fetchWeather();
+      return () => clearTimeout * timer;
+    }, 1500);
   }, [location]);
 
   return (
