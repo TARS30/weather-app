@@ -10,6 +10,9 @@ const StyledMain = styled.main`
   height: 100vh;
   overflow: scroll;
   transition: all 1s ease 0s;
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const Main = ({ children, wallpaper }) => {

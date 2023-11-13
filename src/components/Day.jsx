@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledDay = styled.li`
-  gap: 1rem;
+  gap: 0.5rem;
+  width: 15rem;
   display: flex;
   flex-wrap: wrap;
   cursor: pointer;
@@ -10,11 +11,23 @@ const StyledDay = styled.li`
   flex-direction: column;
   background-color: #ffffff3b;
   transition: all 0.3s ease 0s;
+  @media (max-width: 768px) {
+    gap: 0.25rem;
+    width: 12rem;
+  }
+  & p {
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+  }
   & span {
     font-size: 5.2rem;
+    @media (max-width: 768px) {
+      font-size: 4rem;
+    }
   }
   &:hover {
-    scale: 1.1; 
+    scale: 1.1;
     color: #ffffff;
     background-color: #64646444;
   }
@@ -42,7 +55,6 @@ function formatDay(dateStr) {
   return new Intl.DateTimeFormat("en", {
     weekday: "short",
   }).format(new Date(dateStr));
-
 }
 
 const Day = (props) => {
@@ -52,8 +64,9 @@ const Day = (props) => {
     <StyledDay>
       <span>{getWeatherIcon(code)}</span>
       <p>{isToday ? "Today" : formatDay(date)}</p>
+      <p>from {Math.floor(min)}&deg;</p>
       <p>
-        {Math.floor(min)}&deg; &mdash; <strong>{Math.ceil(max)}&deg;</strong>
+        <strong>to {Math.ceil(max)}&deg;</strong>
       </p>
     </StyledDay>
   );
